@@ -1,3 +1,6 @@
+body {
+  background-color: rgb(216, 255, 242);
+}
 .main-input {
   display: block;
   margin-top: 20px;
@@ -16,4 +19,30 @@
   color: #d17a7a;
   font-size: 16px;
   text-align: center;
+}
+.header {
+  text-align: center;
+  font-size: 60px;
+}
+.list-item {
+  font-size: 20px;
+}
+.text {
+  font-size: 20px;
+}
+.text-bold {
+  font-weight: 700;
+}
+.list {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+.image {
+  width: 300px;
+  outline: 1px solid black;
+}
+.wraper {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
