@@ -14,10 +14,10 @@ body {
   -khtml-border-radius: 3px;
   background: black;
   outline: none;
-  height: 50px;
-  width: 250px;
+  height: 70px;
+  width: 300px;
   color: #d17a7a;
-  font-size: 16px;
+  font-size: 20px;
   text-align: center;
 }
 .header {
@@ -25,20 +25,20 @@ body {
   font-size: 60px;
 }
 .list-item {
-  font-size: 20px;
+  font-size: 30px;
 }
 .text {
-  font-size: 20px;
+  font-size: 30px;
 }
 .text-bold {
   font-weight: 700;
 }
 .list {
   margin-top: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 .image {
-  width: 300px;
+  width: 400px;
   outline: 1px solid black;
 }
 .wraper {

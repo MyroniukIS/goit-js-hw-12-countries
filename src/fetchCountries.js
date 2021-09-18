@@ -29,10 +29,11 @@ export default
         refs.countriesList.insertAdjacentHTML('beforeend', result);
     }).catch(err => {
         // alert ("nono")
+        console.dir(err)
         if (err.message === "404") {
             error({
-                text: 'Too many matches found. Please enter a more specific query!',
-            })
+                text: "Too many matches found. Please enter a more specific query!"
+            });
         }
     });
 
