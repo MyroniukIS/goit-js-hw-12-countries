@@ -1,4 +1,5 @@
 import refs from './refs.js'
+import template from "./template.hbs"
 
 
 export default
@@ -14,9 +15,8 @@ export default
             }
             if (array.length === 1) {
                 console.log(array)
-                return `<h1>${elem.name}</h1><p><span>Capital: </span>${elem.capital}</p>
-                <p><span>Population: </span>${elem.population}</p><ul><li>${elem.languages}</li></ul>
-                <img src="${elem.flag}" alt="${elem.name}"/>`
+                let markup = template(array);
+                return markup;
             }
             
         }).join('')
