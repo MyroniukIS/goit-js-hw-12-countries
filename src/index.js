@@ -14,12 +14,11 @@ const endPoint = '/name';
 
 
 
-refs.mainInput.addEventListener('input', debounce(onEnterInput, 500));
+refs.mainInput.addEventListener('input', debounce(onEnterInput, 1000));
 
 function onEnterInput(e) {
     searchQuery = e.target.value;
     let URL = `https://restcountries.eu/rest/v2${endPoint}/${searchQuery}`;
     refs.countriesList.innerHTML = ('');
-    fetchCountries(URL);
-   
+    fetchCountries(URL, searchQuery);
 }
