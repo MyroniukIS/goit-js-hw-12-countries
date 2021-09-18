@@ -30,8 +30,8 @@ var i=require("./isObject"),t=require("./now"),r=require("./toNumber"),n="Expect
 },{"./isObject":"u9vI","./now":"pJf5","./toNumber":"iS0Z"}],"kvIT":[function(require,module,exports) {
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=void 0;var e={mainInput:document.querySelector(".main-input"),countriesList:document.querySelector(".countries-list")};exports.default=e;
 },{}],"SvwL":[function(require,module,exports) {
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=n;var e=t(require("./refs.js"));function t(e){return e&&e.__esModule?e:{default:e}}function n(t){fetch(t).then(e=>e.json()).then(e=>e).then(t=>{let n=t.map(e=>`<li>${e.name}</li>`).join("");e.default.countriesList.insertAdjacentHTML("beforeend",n)})}
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=t;var e=n(require("./refs.js"));function n(e){return e&&e.__esModule?e:{default:e}}function t(n){fetch(n).then(e=>e.json()).then(e=>e).then(n=>{let t=n.map(e=>n.length<=10&n.length>=2?`<li>${e.name}</li>`:1===n.length?(console.log(n),`<h1>${e.name}</h1><p><span>Capital: </span>${e.capital}</p>\n                <p><span>Population: </span>${e.population}</p><ul><li>${e.languages}</li></ul>\n                <img src="${e.flag}" alt="${e.name}"/>`):void 0).join("");console.log(n),e.default.countriesList.insertAdjacentHTML("beforeend",t)})}
 },{"./refs.js":"kvIT"}],"Focm":[function(require,module,exports) {
 "use strict";var e=r(require("lodash/debounce")),t=r(require("./fetchCountries.js")),u=r(require("./refs.js"));function r(e){return e&&e.__esModule?e:{default:e}}let n="Uk";const s="/name";function i(e){n=e.target.value;let r=`https://restcountries.eu/rest/v2${s}/${n}`;u.default.countriesList.innerHTML="",(0,t.default)(r)}u.default.mainInput.addEventListener("input",(0,e.default)(i,500));
 },{"lodash/debounce":"CXfR","./fetchCountries.js":"SvwL","./refs.js":"kvIT"}]},{},["Focm"], null)
-//# sourceMappingURL=/parcel-project-template/src.393ce868.js.map
+//# sourceMappingURL=/parcel-project-template/src.9551bd9a.js.map
