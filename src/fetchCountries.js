@@ -16,8 +16,7 @@ const myStack = new Stack({
 });
 
 export default
-    function fetchCountries(searchQuery, query) {
-    console.log(query)
+    function fetchCountries(searchQuery) {
     fetch(searchQuery).then(response => {
         return response.json()
     }).then(data => {
@@ -44,7 +43,7 @@ export default
            
         }).join('')
         if (array.length > 10) {
-            console.log(array)
+            // console.log(array)
             throw error
         }
         refs.countriesList.insertAdjacentHTML('beforeend', result);
