@@ -7,7 +7,8 @@ defaultModules.set(PNotifyMobile, {});
 import debounce from 'lodash/debounce';
 import fetchCountries from './fetchCountries.js'
 import refs from './refs.js'
-import template from "./template.hbs"
+import templateCard from "./templateCard.hbs"
+import templateList from "./templateList.hbs"
 
 const myStack = new Stack({
     dir1: 'up',
@@ -26,38 +27,35 @@ function onEnterInput(e) {
     let URL = `https://restcountries.eu/rest/v2${endPoint}/${searchQuery}`;
     refs.countriesList.innerHTML = ('');
     //function to fetch countries
-    fetchCountries(URL).then(data => {
+    fetchCountries(URL)
+        .then(data => {
         return data;
-    }).then(array => {
-        let result = array.map(elem => {
+    })
+        .then(array => {
+              
             if (array.length <= 10 & array.length >= 2) {
                      info({
                     text: "Please, specify search options!",
                     stack: myStack
                 });           
-                
-                return `<li class="list-item">${elem.name}</li>`
-            }
-            
-            if (array.length === 1) {
-                let markup = template(array);
+                refs.countriesList.insertAdjacentHTML('beforeend', templateList(array));
+                return 
+            } else if (array.length === 1) {
                 success({
                     text: "You found the country!",
                     stack: myStack
                 });
-                return markup;
-            }
-           
-        }).join('')
-        if (array.length > 10) {
-            // console.log(array)
-            throw error
-        }
-        refs.countriesList.insertAdjacentHTML('beforeend', result);
-    }).catch(error => {   
-            error({
+                refs.countriesList.insertAdjacentHTML('beforeend', templateCard(array));
+                return 
+             } else if (array.length > 10) {
+                 error({
             text: "Too many matches found. Please enter a more specific query!",
             stack: myStack
-        });
+                 });
+                 return
+        }
+        }).catch(error => {
+             
+            console.log(error)
     });
 }
