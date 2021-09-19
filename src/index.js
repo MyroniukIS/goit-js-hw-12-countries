@@ -25,37 +25,42 @@ refs.mainInput.addEventListener('input', debounce(onEnterInput, 1000));
 function onEnterInput(e) {
     const searchQuery = e.target.value.trim();
     let URL = `https://restcountries.eu/rest/v2${endPoint}/${searchQuery}`;
-    refs.countriesList.innerHTML = ('');
+    refs.countriesList.innerHTML = '';
     //function to fetch countries
     fetchCountries(URL)
         .then(data => {
         return data;
     })
-        .then(array => {
-              
+        .then(array => { 
             if (array.length <= 10 & array.length >= 2) {
+                refs.mainInput.disabled = true
                      info({
                     text: "Please, specify search options!",
                     stack: myStack
-                });           
+                     });
+                refs.mainInput.disabled = false
                 refs.countriesList.insertAdjacentHTML('beforeend', templateList(array));
                 return 
             } else if (array.length === 1) {
+                refs.mainInput.disabled = true
                 success({
                     text: "You found the country!",
                     stack: myStack
                 });
+                refs.mainInput.disabled = false
                 refs.countriesList.insertAdjacentHTML('beforeend', templateCard(array));
-                return 
-             } else if (array.length > 10) {
+                refs.mainInput.value = '';
+                return
+            } else if (array.length > 10) {
+                refs.mainInput.disabled = true
                  error({
             text: "Too many matches found. Please enter a more specific query!",
             stack: myStack
                  });
+                refs.mainInput.disabled = false
                  return
         }
         }).catch(error => {
-             
-            console.log(error)
-    });
+            console.log(error);
+        });
 }
