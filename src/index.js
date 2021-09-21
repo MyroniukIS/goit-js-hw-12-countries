@@ -18,8 +18,6 @@ const myStack = new Stack({
     overlayClose: true
 });
 
-const endPoint = '/name';
-
 refs.mainInput.addEventListener('input', debounce(onEnterInput, 1000));
 
 function onEnterInput(e) {
@@ -27,11 +25,9 @@ function onEnterInput(e) {
     if (searchQuery.length < 1) {
         return;
     }
-
-    let URL = `https://restcountries.eu/rest/v2${endPoint}/${searchQuery}`;
     refs.countriesList.innerHTML = '';
     //function to fetch countries
-    fetchCountries(URL)
+    fetchCountries(searchQuery)
         .then(data => {
             if (!data) {
                 return;
